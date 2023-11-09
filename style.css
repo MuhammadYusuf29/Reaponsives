@@ -6,11 +6,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-
 body {
   background-color: #171717;
-  /* overflow-x: hidden; */
 }
 
 .container {
@@ -90,6 +89,109 @@ ul li a {
   font-weight: 600;
   transition: 0.3s;
   color: white;
+}
+
+.img-box img {
+  display: block;
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+}
+
+.card-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  grid-gap: 2rem;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.card {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+}
+
+.card-content {
+  position: absolute;
+  background-color: rgba(0 0 0/50%);
+  bottom: 0;
+  color: #fff;
+  width: 100%;
+  height: 20%;
+  padding: 2.2rem;
+  overflow: hidden;
+  transition: 0.7s;
+}
+
+.card-content h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.card-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  padding: 1.2rem;
+}
+
+.card-content:hover {
+  height: 60%;
+  transition: 0.7s;
+}
+
+.card-content:hover h1 {
+  display: none;
+}
+
+.card-content h2 {
+  display: none;
+}
+
+.card-content:hover h2 {
+  display: flex;
+  font-size: 35px;
+  justify-content: center;
+}
+
+.card-content a {
+  display: none;
+}
+
+.card-content:hover a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  color: white;
+  font-size: 20px;
+}
+
+.card-content h4 {
+  display: none;
+}
+
+.card-content:hover h4 {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 ul li a:hover {
@@ -179,6 +281,7 @@ ul li a:hover {
   width: min(25rem, 90%);
   border-radius: 100%;
 }
+
 .title {
   text-align: center;
 }
@@ -193,7 +296,7 @@ ul li a:hover {
 .destination-content {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
   justify-content: center;
   /* display: grid; */
   /* grid-template-columns: repeat(auto-fit, minmax(300px, auto)); */
@@ -491,48 +594,46 @@ input[type=submit]:hover {
 }
 
 @media screen and (max-width:768px) {
-  body{
+  body {
     flex-direction: column;
   }
-    nav .checkbox {
-      display: block;
-      color: white;
-    }
-  
-    ul {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      left: -100%;
-      top: 80px;
-      background: #171717;
-      flex-direction: column;
-      justify-content: center;
-      gap: 3rem;
-    }
-  
-    nav #check:checked~ul {
-      left: 0;
-    }
-  
-    ul li a {
-      font-size: 1.25rem;
-      color: white;
-    }
-  
-    .section__container {
-      padding: 10rem 1rem 5rem 1rem;
-      text-align: center;
-      grid-template-columns: repeat(1, 1fr);
-    }
-  
-    .image {
-      grid-area: 1/1/2/2;
-    }
-  
-    .action__btns {
-      margin: auto;
-    }
+
+  nav .checkbox {
+    display: block;
+    color: white;
+  }
+
+  ul {
+    position: absolute;
+    width: 100%;
+    height: 20vh;
+    left: -100%;
+    top: 80px;
+    background: #171717;
+    justify-content: center;
+    gap: 10px;
+  }
+  nav #check:checked~ul {
+    left: 0;
+  }
+  ul li a {
+    font-size: 1.25rem;
+    color: white;
+  }
+  .section__container {
+    padding: 10rem 1rem 5rem 1rem;
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .image {
+    grid-area: 1/1/2/2;
+  }
+
+  .action__btns {
+    margin: auto;
+  }
+
   .footer {
     position: relative;
     bottom: 0;
@@ -596,5 +697,12 @@ input[type=submit]:hover {
 
   .about__image {
     width: 100%;
+  }
+}
+
+@media (max-width:1024px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+
   }
 }
